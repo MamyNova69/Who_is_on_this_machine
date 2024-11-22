@@ -8,6 +8,7 @@ if (Test-Connection -ComputerName $TargetComputer -Count 1 -Quiet) {
 
     try {
         $LoggedUsers = Get-WmiObject -Class Win32_ComputerSystem -ComputerName $TargetComputer
+	# à remplacer par Get-CimInstance
         if ($LoggedUsers.UserName) {
             $LoggedUser = $LoggedUsers.UserName
             Write-Output "L'utilisateur actuellement sur $TargetComputer est $LoggedUser `n"
